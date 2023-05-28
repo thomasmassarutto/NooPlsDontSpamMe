@@ -81,23 +81,28 @@ Sono presenti anche altre altre funzioni per usi piu specifici, per ulteriori in
 
 ## FAQ
 **Q: Quanto devo essere scimmia per usarlo?**
+
 A: 3/10, se sai dell'esistenza di Github, probabilmente sei in grado di usare sto bot.
 
 ------------
 
 **Q: Ma e' corretto utilizzarlo?**
+
 A: Non lo so, ma se qua scrivo che e' solo a scopo di test magari la gente non rompe.
 
 ------------
 
 **Q: Come posso difendermi da questo bot?**
+
 A: Ci sono un sacco di modi, leggiti la documentazione dei forms di Google per scegliere quello che reputi il migliore (ehh volevi che ti dessi la soluzione bella che pronta, guarda che faccia, guarda che faccia, non se l'aspettava, pensavi li col blocco note, le dita pronte a scrivere, ma sai una cosa? **LEGGITI LA DOCUMENTAZIONE**).
 
 ------------
 
 **Q: Quanto spamma?**
+
 A: Se non si inceppa siamo tipo sui 90/100 form al minuto e non l'ho ancora visto fermarsi con messaggi del tipo "Fermo bro, mi sa che hai inviato troppe risposte".
 
 ------------
 **Q: Quali sono le limitazioni del bot?**
+
 A: E' in grado di spammare solo su form Google che permettono l'invio di più risposte che non raccolgono l'indirizzo Gmail, che cmq e' gia' la maggior parte dei form spammati sui gruppi del genere "Calcetto", "Fortnite Squad 420", "Gruppo di studio Uni".
