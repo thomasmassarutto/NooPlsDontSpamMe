@@ -100,7 +100,7 @@ A: Ci sono un sacco di modi, leggiti la documentazione dei forms di Google per s
 
 **Q: Quanto spamma?**
 
-A: Se non si inceppa siamo tipo sui 90/100 form al minuto e non l'ho ancora visto fermarsi con messaggi del tipo "Fermo bro, mi sa che hai inviato troppe risposte".
+A: Se non si inceppa siamo tipo sui 90/100 form al minuto e non l'ho ancora visto fermarsi con messaggi del tipo "Fermo bro, mi sa che hai inviato troppe risposte". Edit: dopo tipo 10k compilazioni da problemi, credo sia effettivamente google che dice "Fermo bro, mi sa che hai inviato troppe risposte"... ma no prob, basta aspettare un 10 minuti e il tipo si dimentica di tutto. 
 
 ------------
 **Q: Quali sono le limitazioni del bot?**
