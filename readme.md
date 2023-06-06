@@ -20,7 +20,7 @@ Insomma, non fare monate.
 
 ## Come lo uso?
 ### Intro
-Il programma si basa sulla capacità di generare un link precompilato del modulo Google. Lo script genera una moltitudine di link che vengono utilizzati per simulare la compilazione effettiva del modulo da parte di un utente. I dati inseriti nelle risposte sono randomizzati in base alle funzioni utilizzate.
+Il programma si basa sulla capacità di rispondere ad un modulo Google tramite un link precompilato. Genera in continuazione "link risposta" che simulano la compilazione del modulo da parte di un utente.
 
 ## Utilizzo
 Prima di cominciare assicurarsi di aver installato _requests_:
@@ -49,32 +49,34 @@ Copiare la stringa in un editor di testo per modificarla nel passo successivo.
 Inserire tutte le entry nel file *message.py* all'interno della struttura *data* associate alla corrette funzioni in grado di generare rispose random, come nell'esempio:
 ```python
 data = {
-        'entry.239216472': functions.generate_random_string(3, 10),
-        'entry.1140745251': functions.generate_random_choiches(['Opzione 1', 'Opzione 2']),
-        'entry.1597939621': functions.generate_random_choiches(['Opzione 1', 'Opzione 2']),
+        'entry.239216472': answer.generate_random_string(3, 10),
+        'entry.1140745251': answer.generate_random_choiches(['Opzione 1', 'Opzione 2']),
+        'entry.1597939621': answer.generate_random_choiches(['Opzione 1', 'Opzione 2']),
     }
 ```
-Un elemento di `data` e' quindi composto da `entry.id : functions.funzione_randomizzatrice(),`
+Un elemento di `data` e' quindi composto da `entry.id : answer.funzione_randomizzatrice(),`
 
 4. **Far partire lo script**:
-Da *NooPlsDontSpamMe.py* scegliere quanti messaggi inviare modificando il valore della variabile `how_much` e far partire il programma.
-Lasciare in esecuzione il programma fino al completamento.
+Da *NooPlsDontSpamMe.py* scegliere quanti messaggi inviare modificando il valore di `how_much` (impostare il valore su `True` se si vuole procedere indefinitamente). 
+Impostare il delay in secondi fra una risposta ed un altra modificando il valore di `cooldown`. Un valore superiore a 0 evita di venire kickati per spam.
+Lanciare il programma.
 
 Tecnicamente dovrebbe andare, l'ho testato su qualche mio form, basico e non ha dato problemi. Se ci sono errori, cavoli tuoi, ho fatto questo coso in una giornata solo perche' continuavano a spammare quei cavolo di questionari. Non c'e' ne garanzia, ne supporto, però sei libero di modificarlo quanto vuoi eh.
 P.s. Ti consiglio di testarlo prima su un form di prova dove puoi controllare che tutto fili liscio, così non fai correre il tuo pc settordici ore per nulla.
 
 ## Errori comuni
 La scelta della funzione appaiata alla corretta entry e' fondamentale, gli errori piu' comuni sono:
-- non compilare tutte le domande obbligatorie del form
-- inserire le opzioni sbagliate con `functions.generate_random_choiches()`, ricorda che 'ciao' != 'Ciao' != ' ciao'
+- non compilare tutte le domande obbligatorie del form.
+- inserire le opzioni sbagliate con `answer.generate_random_choiches()`, ricorda che `Opzione 1` e' diverso da `opzione 1` e da `Opzione1`.
 - non rispettare i vincoli imposti dal form: alcuni form hanno dei filtri che segnano errata una risposta se non rispetta dati canoni, ad esempio se in un campo viene richiesta la mail, il form accettera' solo le risposte contenenti una stringa che potrebbe essere una mail, ovvero che termina per @​qualcosa.qualcosa. Assicurati di rispettare i vincoli usando le funzioni apposite, o aggiungi manualmente una stringa.
 
 ## Esempio di funzioni randomizzatrici
-Per rendere più difficile il filtraggio delle risposte spam vengono usate delle funzioni in grado di randomizzare le risposte date ad ogni singola domanda. Alcuni esempi:
-- `functions.generate_random_string(3, 10)`: 
+Per rendere più difficile il filtraggio delle risposte spam vengono usate delle funzioni in grado di randomizzare le risposte date ad ogni singola domanda.
+Alcuni esempi:
+- `answer.generate_random_string(3, 10)`:
 genera una stringa casuale lunga minimo 3, massimo 10 caratteri.
 
-- `functions.generate_random_choiches(['Opzione 1', 'Opzione 2'])`:
+- `answer.generate_random_choiches(['Opzione 1', 'Opzione 2'])`:
 seleziona una fra le opzioni. Le opzioni devono essere inserite manualmente fra apici singoli e devono essere identiche a quelle presenti nel form.
 
 Sono presenti anche altre altre funzioni per usi piu specifici, per ulteriori informazioni consulta il codice.
@@ -100,9 +102,9 @@ A: Ci sono un sacco di modi, leggiti la documentazione dei forms di Google per s
 
 **Q: Quanto spamma?**
 
-A: Se non si inceppa siamo tipo sui 90/100 form al minuto e non l'ho ancora visto fermarsi con messaggi del tipo "Fermo bro, mi sa che hai inviato troppe risposte". Edit: dopo tipo 10k compilazioni da problemi, credo sia effettivamente google che dice "Fermo bro, mi sa che hai inviato troppe risposte"... ma no prob, basta aspettare un 10 minuti e il tipo si dimentica di tutto. 
+A: Se non si inceppa siamo tipo sui 90/100 form al minuto e non l'ho ancora visto fermarsi con messaggi del tipo "Fermo bro, mi sa che hai inviato troppe risposte". Edit: dopo tipo 10k compilazioni da problemi, credo sia effettivamente google che dice "Fermo bro, mi sa che hai inviato troppe risposte"... ma no prob, basta aspettare un 10 minuti e il tipo si dimentica di tutto. NB: dopo aver introdotto il cooldown da 1 secondo non l'ho ancora visto fermarsi, forse perche' 10k secondi sono tipo 2h e 46min e io ho robe piu' importanti da fare.
 
 ------------
 **Q: Quali sono le limitazioni del bot?**
 
-A: E' in grado di spammare solo su form Google che permettono l'invio di più risposte che non raccolgono l'indirizzo Gmail, che cmq e' gia' la maggior parte dei form spammati sui gruppi del genere "Calcetto", "Fortnite Squad 420", "Gruppo di studio Uni".
+A: E' in grado di spammare solo su form Google che permettono l'invio di più risposte che non raccolgono l'indirizzo Gmail, che cmq e' gia' la maggior parte dei form spammati sui gruppi del genere "Calcetto", "Fortnite Squad 420", "Gruppo appunti Uni".
