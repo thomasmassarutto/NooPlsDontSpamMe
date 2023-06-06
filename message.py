@@ -18,8 +18,8 @@ def message():
     data = {
             #ESEMPIO:
             ##'entry.69420666': answer.generate_random_string(3,10),
-            ##'entry.69420666': functions.generate_random_choiches(['Molto', 'Tanto', 'Abbastanza', 'Poco', 'Per nulla']),
-            ##'entry.69420666': functions.generate_random_telephone_number(10),
+            ##'entry.69420666': answer.generate_random_choiches(['Molto', 'Tanto', 'Abbastanza', 'Poco', 'Per nulla']),
+            ##'entry.69420666': answer.generate_random_telephone_number(10),
     }
 
     response = requests.post(url, data=data)
