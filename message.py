@@ -1,5 +1,5 @@
 import requests
-import functions
+import answer
 
 def message():
     ## incolla il link del form, NB: in caso modificalo perche sia simile a:
@@ -17,14 +17,11 @@ def message():
     ## rispecchino quelle del form
     data = {
             #ESEMPIO:
-            ##'entry.69420666': functions.generate_random_string(3,10),
+            ##'entry.69420666': answer.generate_random_string(3,10),
             ##'entry.69420666': functions.generate_random_choiches(['Molto', 'Tanto', 'Abbastanza', 'Poco', 'Per nulla']),
             ##'entry.69420666': functions.generate_random_telephone_number(10),
     }
 
     response = requests.post(url, data=data)
-
-    if response.status_code == 200:
-        print('Richiesta inviata con successo!')## il messaggio è corretto, POTREBBE essere arrivato
-    else:
-        print('Errore nella richiesta:', response.status_code)
+        
+    return response.status_code
