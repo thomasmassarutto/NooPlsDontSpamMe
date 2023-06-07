@@ -2,11 +2,11 @@ import requests
 import answer
 
 def message():
-    ## incolla il link del form, NB: in caso modificalo perche sia simile a:
-    ## https://docs.google.com/forms/d/e/randomLetters
-    ## ad esempio solitamente bisogna togliere la perte finale
-    ## ESEMPIO: 
-    ## form= "https://docs.google.com/forms/d/e/randomLetters"
+     ## paste the link of the form, NB: in case modify it so that it is similar to:
+     ## https://docs.google.com/forms/d/e/rand0mL1nk
+     ## for example usually you have to remove the final part
+     ## EXAMPLE:
+     ## form="https://docs.google.com/forms/d/e/rand0mL1nk"
     form= ""
 
     url = form + "/formResponse"
@@ -15,11 +15,14 @@ def message():
     ## generate_random_string per domande in cui è presente un campo per inserire una stringa
     ## generate_random_choiches per domande a risposta chiusa: le opzioni devi modificarle perche
     ## rispecchino quelle del form
+    
+    ## modify the data structure with the correct entries and the correct function:
+    ## choose the correct function from the file "answer.py" 
     data = {
-            #ESEMPIO:
-            ##'entry.69420666': answer.generate_random_string(3,10),
-            ##'entry.69420666': answer.generate_random_choiches(['Molto', 'Tanto', 'Abbastanza', 'Poco', 'Per nulla']),
-            ##'entry.69420666': answer.generate_random_telephone_number(10),
+            ## EXAMPLE:
+            ##'entry.694206661': answer.generate_random_string(3,10),
+            ##'entry.694206662': answer.generate_random_choiches(['Always', 'Usually', 'Often', 'Sometimes', 'Never']),
+            ##'entry.694206663': answer.generate_random_telephone_number(),
     }
 
     response = requests.post(url, data=data)

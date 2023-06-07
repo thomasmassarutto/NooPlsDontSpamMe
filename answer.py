@@ -1,7 +1,9 @@
+## This file contains a list of useful functions that generate random data.
+
 import random
 import string
 
-## genera una stringa casuale di caratteri  
+## generate a random string of characters
 def generate_random_string(min_length, max_length):
     length = random.randint(min_length, max_length)
     characters= string.ascii_lowercase
@@ -9,7 +11,7 @@ def generate_random_string(min_length, max_length):
     return random_value
 ## output: 'uyrtuftybu'
 
-## genera due stringhe separate da spazio
+## generates two strings separated by a space
 def generate_random_name_surname():
     min_length= 5 
     max_length= 10
@@ -18,7 +20,7 @@ def generate_random_name_surname():
     return  name + ' ' + surname
 ## output: 'Ghvf Pbhj'
 
-## genera un testo 
+## generate a text
 def generate_random_text(min_length, max_length):
     length = random.randint(min_length, max_length)
     text= generate_random_string(1, 10).capitalize() + ' '
@@ -27,7 +29,7 @@ def generate_random_text(min_length, max_length):
     return text
 ## output: 'Hcgfd vfj jhb'
 
-## genera una stringa di charatteri che termina con @gmail.com
+## generates a string of characters ending with @gmail.com
 def generate_random_mail():
     min_length= 5
     max_length= 10
@@ -37,21 +39,21 @@ def generate_random_mail():
     return random_value + '@gmail.com'
 ## output: ghbj@gmail.com
 
-## data una lista di opzioni ne sceglie una a caso
+## given a list of options choose one at random
 def generate_random_choiches(options):
     random_option= random.choice(options)
     return random_option
 ## output: 'Opzione 1'
 
-## genera un numero di telefono che comincia con 3, così non sembra fasullo (almeno in ita)
+## generate a phone number starting with 3, so it doesn't look fake (at least in Italy)
 def generate_random_telephone_number():
     digits= string.digits
     random_value = ''.join(random.choices(digits, k=9))
     return '3' + random_value
 ## output: '3097653589'
 
-## genera un numero compreso fra un min e un max (bypass)
+## generate a number between a min and a max (this is a "bypass" for randint function)
 def generate_random_number(min_age, max_age):
-    age = random.randint(min_age, max_age)
-    return age
+    nbr = random.randint(min_age, max_age)
+    return nbr
 ## output: 20
