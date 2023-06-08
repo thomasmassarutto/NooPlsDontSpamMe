@@ -37,13 +37,14 @@ inserilo nella variabile `form` di *message.py*:
 
 2. **Ricavare il payload**:
 Sta parte è un po' arzigogolata, se non capisci cerca su internet: "How to Check Submitted Form Data in Chrome Dev Tools". Ci sara' sicuramente qualche video.
-Accedere al form da spammare, avviare lo strumento _ispeziona_, compilare il form una volta e inviare la risposta "manualmente".
+Accedere al form da spammare (nel caso il form preveda la raccolta dell'indirizzo mail, è consigliato accedere con un indirizzo gmail burner), avviare lo strumento _ispeziona_, compilare il form una volta e inviare la risposta "manualmente".
 Con lo strumento _ispeziona_ spostarsi nella sezione **Network**. Nel menu laterale sinistro di centro pagina selezionare l'elemento **formResponse**, visualizando il suo **Payload**. In modalità **view source**.
 dovrebbe risultare una stringa del genere: `entry.239216472=aaa&entry.1597939621=Opzione+1&entry.1140745251=Opzione+2&dlut=1685189687612&entry.1597939621_sentinel=&entry.1140745251_sentinel=&fvv=1&partialResponse=%5Bnull%2Cnull%2C%22-2859418861210136122%22%5D&pageHistory=0&fbzx=-2859418861210136122`.
 Questa e' la codifica della risposta che e' appena stata inviata al form: `entry` specifica la domanda e la risposta e' specificata dopo l'"=", ad esempio:
 `entry.239216472=aaa`
-Significa che alla domanda `entry.239216472` abbiamo risposto con `aaa`.
+Significa che alla domanda `entry.239216472` è stato risposto con `aaa`.
 Copiare la stringa in un editor di testo per modificarla nel passo successivo.
+Se il form prevede la raccolta dell'indirizzo mail dovrai recarti nella sezione **cookie** del payload e cercare il cookie soprannominato `__Secure-3PSID`, anotati anche questo valore.
 
 3. **Inserire i dati**:
 Inserire tutte le entry nel file *message.py* all'interno della struttura *data* associate alla corrette funzioni in grado di generare rispose random, come nell'esempio:
@@ -55,6 +56,9 @@ data = {
     }
 ```
 Un elemento di `data` e' quindi composto da `entry.id : answer.funzione_randomizzatrice(),`
+Se il form prevede la raccolta dell'indirizzo mail decommenta la riga `'emailAddress': ' '`e riempi il campo con l'indirizzo mail che hai usato per inviare la risposta di prova.
+Inserisci il valore del cookie Secure-3PSID all'interno della struttura *cookie*.
+Nel caso il form prevedesse la raccolta dell'indirizzo mail rimuovi `", cookies=cookies"` dalla response.
 
 4. **Far partire lo script**:
 Da *NooPlsDontSpamMe.py* scegliere quanti messaggi inviare modificando il valore di `how_much` (impostare il valore su `True` se si vuole procedere indefinitamente). 
@@ -107,4 +111,4 @@ A: Se non si inceppa siamo tipo sui 90/100 form al minuto e non l'ho ancora vist
 ------------
 **Q: Quali sono le limitazioni del bot?**
 
-A: E' in grado di spammare solo su form Google che permettono l'invio di più risposte che non raccolgono l'indirizzo Gmail, che cmq e' gia' la maggior parte dei form spammati sui gruppi del genere "Calcetto", "Fortnite Squad 420", "Gruppo appunti Uni".
+A: E' in grado di spammare in completo anonimato solo su form Google che permettono l'invio di più risposte che non raccolgono l'indirizzo Gmail, che cmq e' gia' la maggior parte dei form spammati sui gruppi del genere "Calcetto", "Fortnite Squad 420", "Gruppo appunti Uni". Se il form vuole l'indirizzo mail certificato avrai bisogno di una mail gmail da "sacrificare", ma è possibile, puoi usare la mail che avevi a 15 anni per esempio.

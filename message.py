@@ -23,8 +23,21 @@ def message():
             ##'entry.694206661': answer.generate_random_string(3,10),
             ##'entry.694206662': answer.generate_random_choiches(['Always', 'Usually', 'Often', 'Sometimes', 'Never']),
             ##'entry.694206663': answer.generate_random_telephone_number(),
-    }
 
-    response = requests.post(url, data=data)
-        
+            ## if the form requires one verified mail, uncomment the line below and fill the blank with a valid e-mail (xxx@gmail)
+            ## NB, the e-mail address will be visible to the form owner, choose a burner one for privacy!
+            # 'emailAddress': ''    
+    }
+    
+    ## if the form requires one verified mail, complete the blank with the __Secure-3PSID cookie.
+    ## the cookie string is in the "cookie" tab near the payload where you found the entries above
+    ## it will be a string like AloTofCharactTers_S0met1meSthereIsals0anumb3r_Afacsg2j75Dyk.
+    cookies={
+            ## when will the cookie expire?Note that here!
+            '__Secure-3PSID': ' '
+     }
+
+    ## if the form does not require one verified mail, do not sent the cookies value, delete ", cookies=cookies".
+    response = requests.post(url, data=data, cookies=cookies)
+  
     return response.status_code

@@ -7,7 +7,7 @@ import spam_utils
 ## Decide how many messages to send. 
 ## Set it to True if you don't want to have a limit: the program will run until stopped manually. I
 # #t is recommended to enter a cooldown value
-how_much= True
+how_much= 10
 ## Decide how many seconds to wait before sending a new message. If how_much is True it is recommended to set 
 ## a cooldown to prevent spam detecting from Google forms
 cooldown= 0
