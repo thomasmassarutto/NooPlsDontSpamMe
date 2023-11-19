@@ -12,12 +12,23 @@ def generate_random_string(min_length, max_length):
 ## output: 'uyrtuftybu'
 
 ## generates two strings separated by a space
-def generate_random_name_surname():
-    min_length= 5 
-    max_length= 10
-    name = generate_random_string(min_length, max_length).capitalize()
-    surname = generate_random_string(min_length, max_length).capitalize()
-    return  name + ' ' + surname
+def generate_random_name():
+    name = random.choice(["Mario", "Luigi", "Francesca", "Giuseppe",
+                         "Alessia", "Giovanni", "Anna", "Luca", "Laura",
+                         "Roberto", "Matteo", "Federica", "Gabriele", "Andrea",
+                         "Sebastiano", "Laura", "Ludovica","Chiara", "Fabrizio",
+                         "Mauro", "Denise", "Larisa", "Marco", "Damiano", "Giulia", "Paola",
+                         "Lucrezia", "Elena", "Jessica", "Beatrice"])
+    return name
+def generate_random_surname():
+    surname = random.choice(["Rossi", "Bianchi", "Verdi", "Russo", "Ferrari", "Esposito",
+                            "Colombo", "Romano", "Conti", "Galli", "Ricci", "Marino", "Costa",
+                            "Gallo", "Rizzo", "Rinaldi", "Marchetti", "Coppola", "Palma", "Benedetti",
+                            "Piazza", "Viscardis", "Marangon", "De Luca", "De Pasquale", "Casella", "Castaldi",
+                            "Felici", "Gentilin", "Lopez", "Martinelli", "Moro", "Moro", "Moro", "Simonini",
+                             "Santoro", "Zivkovic", "Zolnowski", "Giuliani", "Favero", "Ahamed", "Antosh", "Sina", 
+                            "Ferrin", "Hossain", "Ahmad", "Abubakar", "Albani", "Chi", "Hang Yu"] )
+    return surname
 ## output: 'Ghvf Pbhj'
 
 ## generate a text
